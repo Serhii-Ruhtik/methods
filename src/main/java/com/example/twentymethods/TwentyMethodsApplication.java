@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class TwentyMethodsApplication {
 
     public static void main(String[] args) {
-        //1
+        //1 робила Анастасія
         char[] testArray = {'A', 'B', 'C'};
         charArray(testArray);
 

@@ -1,4 +1,4 @@
-package com.bondarenko.twentymethods;
+package com.example.twentymethods;
 
 import ch.qos.logback.core.encoder.JsonEscapeUtil;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

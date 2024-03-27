@@ -141,10 +141,11 @@ public class TwentyMethodsApplication {
     }
 
     public static void charToString(char[] string) {
+//        System.out.print("Task 6 = ");
         System.out.print("Task 6 = ");
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (char c : string) {
-            result = String.valueOf(c);
+            result.append(c);
         }
         System.out.println(result);
     }
@@ -257,14 +258,14 @@ public class TwentyMethodsApplication {
             if (array3[i] != array4[i]) {
                 resultSimilar[i] = array3[i];
             }
-            System.out.print(resultSimilar[i] + " ");
+//            System.out.print(resultSimilar[i] + " ");
         }
 
         for (int i = 0; i < array3.length; i++) {
             if (array3[i] != array4[i]) {
                 resultSimilar[i] = array4[i];
             }
-            System.out.print(resultSimilar[i] + " ");
+//            System.out.print(resultSimilar[i] + " ");
         }
         System.out.println(Arrays.toString(resultSimilar));
 

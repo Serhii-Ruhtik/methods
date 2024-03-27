@@ -1,6 +1,6 @@
 package com.example.twentymethods;
 
-import ch.qos.logback.core.encoder.JsonEscapeUtil;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
@@ -96,13 +96,13 @@ public class TwentyMethodsApplication {
 
 
     public static void charArray(char[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (char c : array) {
+            System.out.print(c + " ");
         }
         System.out.println();
     }
 
-    public static char[] intToChar(int[] arrayTask2) {
+    public static void intToChar(int[] arrayTask2) {
         System.out.print("Task 2 = ");
         char[] arrayChar = new char[arrayTask2.length];
         for (int i = 0; i < arrayTask2.length; i++) {
@@ -110,19 +110,17 @@ public class TwentyMethodsApplication {
             System.out.print(arrayChar);
         }
         System.out.println();
-        return arrayChar;
     }
 
-    public static int bigInt(int a, int b) {
+    public static void bigInt(int a, int b) {
         if (a > b) {
             System.out.println("task 3 = " + a);
         } else {
             System.out.println("task 3 = " + b);
         }
-        return a;
     }
 
-    public static int maxInt(int x, int y, int c) {
+    public static void maxInt(int x, int y, int c) {
         if (x > y) {
             System.out.println("Task 4 = " + x);
         } else if (y > c) {
@@ -130,14 +128,13 @@ public class TwentyMethodsApplication {
         } else if (c > y) {
             System.out.println("Task 4 = " + c);
         }
-        return x;
     }
 
     public static int maxNumber(int[] arrayNum) {
         int max = arrayNum[0];
-        for (int i = 0; i < arrayNum.length; i++) {
-            if (arrayNum[i] > max) {
-                max = arrayNum[i];
+        for (int j : arrayNum) {
+            if (j > max) {
+                max = j;
             }
         }
         return max;
@@ -146,8 +143,8 @@ public class TwentyMethodsApplication {
     public static void charToString(char[] string) {
         System.out.print("Task 6 = ");
         String result = "";
-        for (int i = 0; i < string.length; i++) {
-            result += String.valueOf(string[i]);
+        for (char c : string) {
+            result = String.valueOf(c);
         }
         System.out.println(result);
     }
@@ -190,11 +187,7 @@ public class TwentyMethodsApplication {
             System.out.println(true);
         } else if (year % 100 == 0) {
             System.out.println(true);
-        } else if (year % 400 == 0) {
-            System.out.println(true);
-        } else {
-            System.out.println(false);
-        }
+        } else System.out.println(year % 400 == 0);
     }
 
     public static void bubbleSort(int[] array) {
@@ -225,9 +218,9 @@ public class TwentyMethodsApplication {
 
     public static void multiplesNum(int[] array12, int num12) {
         System.out.print("Task 12 = ");
-        for (int i = 0; i < array12.length; i++) {
-            if (array12[i] % num12 == 0) {
-                System.out.print(array12[i] + " ");
+        for (int j : array12) {
+            if (j % num12 == 0) {
+                System.out.print(j + " ");
             }
         }
         System.out.println();
@@ -246,18 +239,18 @@ public class TwentyMethodsApplication {
         System.out.println(false);
     }
 
-    public static int[] multiplyArray(int[] array1, int[] array2) {
+    public static void multiplyArray(int[] array1, int[] array2) {
         System.out.print("Task 15 = ");
         int[] result = new int[array1.length];
         for (int i = 0; i < array1.length; i++) {
             result[i] = array1[i] * array2[i];
             System.out.print(result[i] + " ");
         }
-        System.out.println();
-        return result;
+        System.out.println(Arrays.toString(result));
+
     }
 
-    public static int[] notSimilar(int[] array3, int[] array4) {
+    public static void notSimilar(int[] array3, int[] array4) {
         System.out.print("Task 16 = ");
         int[] resultSimilar = new int[array3.length + array4.length];
         for (int i = 0; i < array3.length; i++) {
@@ -273,8 +266,8 @@ public class TwentyMethodsApplication {
             }
             System.out.print(resultSimilar[i] + " ");
         }
-        System.out.println();
-        return resultSimilar;
+        System.out.println(Arrays.toString(resultSimilar));
+
     }
 
     public static void reversArray(int[] array17) {
@@ -309,6 +302,7 @@ public class TwentyMethodsApplication {
             for (int i = 0; i < string1.length; i++) {
                 if (string1[i] != string2[i]) {
                     arraySimilar = false;
+                    break;
                 }
             }
         }

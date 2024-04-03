@@ -42,13 +42,13 @@ public class TwentyMethodsApplication {
 
         //8
         int[] array8 = {10, 20, 60, 40, 50, 80, 30, 90};
-        int num8 = 2;
-        valueArray(array8, num8);
+        int num8 = 40;
+        indexOf(array8, num8);
 
         //9
         int[] array9 = {10, 20, 60, 40, 50, 80, 30, 90};
         int num9 = 20;
-        indexArray(array9, num9);
+        lastIndexOf(array9, num9);
 
         //10
         int n = 4;
@@ -56,8 +56,8 @@ public class TwentyMethodsApplication {
 
         //11
         int year = 2024;
-//        intercalaryYear(year);
-        System.out.println(intercalaryYear(year));
+//        isLeapYear(year);
+        System.out.println(isLeapYear(year));
 
         //12
         int[] array12 = {10, 20, 60, 40, 50, 80, 30, 90};
@@ -155,21 +155,21 @@ public class TwentyMethodsApplication {
         return result;
     }
 
-    public static String charToString(char[] string) {
+    public static String charToString(char[] array) {
 //        System.out.print("Task 6 = ");
         System.out.print("Task 6 = ");
-        StringBuilder result = new StringBuilder();
-        for (char c : string) {
-            result.append(c);
+        String result = "";
+        for (char c : array) {
+            result += c;
         }
         System.out.println(result);
         return result.toString();
     }
 
-    public static void valueArray(int[] array8, int num8) {
+    public static void indexOf(int[] array8, int num8) {
         System.out.print("Task 8 = ");
         for (int i = 0; i < array8.length; i++) {
-            if (i == num8) {
+            if (array8[i] == num8) {
                 System.out.println(i);
                 return;
             }
@@ -177,7 +177,7 @@ public class TwentyMethodsApplication {
         System.out.println("Value = -1");
     }
 
-    public static void indexArray(int[] array9, int num9) {
+    public static void lastIndexOf(int[] array9, int num9) {
         System.out.print("Task 9 = ");
         for (int i = array9.length - 1; i >= 0 ; i--) {
             if (array9[i] == num9) {
@@ -199,7 +199,7 @@ public class TwentyMethodsApplication {
         return result;
     }
 
-    public static boolean intercalaryYear(int year) {
+    public static boolean isLeapYear(int year) {
         System.out.print("Task 11 = " + year + " ");
         if (year % 4 == 0) {
             return true;
@@ -210,6 +210,19 @@ public class TwentyMethodsApplication {
         } else{
             return  false;
         }
+    }
+
+    public static int multiplesNum(int[] array12, int num12) {
+        System.out.print("Task 12 = ");
+        int mulNum = 0;
+        for (int j : array12) {
+            if (j % num12 == 0) {
+                mulNum = j;
+                System.out.print(mulNum + " ");
+            }
+        }
+        System.out.println();
+        return mulNum;
     }
 
     public static void bubbleSort(int[] array) {
@@ -236,19 +249,6 @@ public class TwentyMethodsApplication {
             System.out.print(i + " ");
         }
         System.out.println();
-    }
-
-    public static int multiplesNum(int[] array12, int num12) {
-        System.out.print("Task 12 = ");
-        int mulNum = 0;
-        for (int j : array12) {
-            if (j % num12 == 0) {
-                mulNum = j;
-                System.out.print(mulNum + " ");
-            }
-        }
-        System.out.println();
-        return mulNum;
     }
 
     public static boolean byteArray(byte[] array14) {

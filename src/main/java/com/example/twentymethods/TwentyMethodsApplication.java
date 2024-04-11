@@ -95,9 +95,10 @@ public class TwentyMethodsApplication {
         randomArrayInt(sizeArray, minLimit, maxLimit);
 
         //19
-        char[] string1 = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd'};
-        char[] string2 = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd'};
-        checkArraySimilarity(string1, string2);
+        char[] string1 = {'H', 'e', 'l', 'l', 'o'};
+        char[] string2 = { 'e', 'l', 'l', };
+//        char[] string2 = { 'e', 'o'};
+        System.out.println("Task 19 " + checkArraySimilarity(string1, string2));
     }
 
 
@@ -333,21 +334,21 @@ public class TwentyMethodsApplication {
     }
 
     public static boolean checkArraySimilarity(char[] string1, char[] string2) {
-        System.out.print("Task 19 = ");
-        boolean arraySimilar = true;
+        boolean arraySimilar = false;
+        int couter = 0;
 
-        if (string1.length != string2.length) {
-            arraySimilar = false;
-        } else {
-            for (int i = 0; i < string1.length; i++) {
-                if (string1[i] != string2[i]) {
-                    arraySimilar = false;
-                    break;
-                }
+        for (int i = 0; i < string1.length; i++) {
+            if (string1[i] == string2[couter]) {
+                couter++;
+            }else {
+                couter = 0;
+            }
+            if (couter == string2.length) {
+                return arraySimilar = true;
             }
         }
-         System.out.println(arraySimilar);
-        return arraySimilar;
+    return arraySimilar;
+
     }
 
 

@@ -31,10 +31,11 @@ public class TwentyMethodsApplication {
         //5
         int one = 60;
         int two = 70;
-        int three = 80;
+        int three = 800;
         int four = 90;
         int five = 100;
         maxOfFiveNumerics(one, two, three, four, five);
+        System.out.println("Task 5 = " + maxOfFiveNumerics(one, two, three, four, five));
 
         //6
         char[] string = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd'};
@@ -146,13 +147,15 @@ public class TwentyMethodsApplication {
     }
 
     public static int maxOfFiveNumerics(int one, int two, int three, int four, int five) {
-        int max1 = maxOfTwoNumerics(one, two);
-        int max2 = maxOfThreeNumerics(three, four, five);
-        int result = max1 > max2 ? max1 : max2;
+        return maxOfTwoNumerics(one, two) > maxOfThreeNumerics(three, four, five) ? maxOfTwoNumerics(one, two) : maxOfThreeNumerics(three, four, five);
 
-        System.out.println("Task 5 = " + result);
-
-        return result;
+//        int max1 = maxOfTwoNumerics(one, two);
+//        int max2 = maxOfThreeNumerics(three, four, five);
+//        int result = max1 > max2 ? max1 : max2;
+//
+//        System.out.println("Task 5 = " + result);
+//
+//        return result;
     }
 
     public static String charToString(char[] array) {
@@ -201,26 +204,28 @@ public class TwentyMethodsApplication {
 
     public static boolean isLeapYear(int year) {
         System.out.print("Task 11 = " + year + " ");
-        if (year % 4 == 0) {
-            return true;
-        } else if (year % 100 == 0) {
-            return true;
-        } else if (year % 400 == 0) {
-            return true;
-        } else{
-            return  false;
-        }
+        return year % 4 == 0 && (year % 400 == 0 || year % 100 != 0);
+//        if (year % 4 == 0) {
+//            return true;
+//        } else if (year % 100 == 0) {
+//            return true;
+//        } else if (year % 400 == 0) {
+//            return true;
+//        } else{
+//            return  false;
+//        }
     }
 
     public static int multiplesNum(int[] array12, int num12) {
         System.out.print("Task 12 = ");
         int mulNum = 0;
-        for (int j : array12) {
-            if (j % num12 == 0) {
-                mulNum = j;
+        for (int i = 0; i < array12.length; i++) {
+            if (array12[i] % num12 == 0) {
+                mulNum = array12[i];
                 System.out.print(mulNum + " ");
             }
         }
+
         System.out.println();
         return mulNum;
     }
@@ -275,27 +280,35 @@ public class TwentyMethodsApplication {
 
     }
 
-    public static void notSimilar(int[] array3, int[] array4) {
+    public static int [] notSimilar(int[] array3, int[] array4) {
         System.out.print("Task 16 = ");
-        int[] resultSimilar = new int[array3.length];
+
+        int[] resultSimilar = new int[array3.length + array4.length];
+        int count = 0;
         for (int i = 0; i < array3.length; i++) {
             if (array3[i] != array4[i]) {
-                resultSimilar[i] = array3[i];
+                resultSimilar[count] = array3[i];
+                count++;
             }
-//            System.out.print(resultSimilar[i] + " ");
         }
 
         for (int i = 0; i < array3.length; i++) {
             if (array3[i] != array4[i]) {
-                resultSimilar[i] = array4[i];
+                resultSimilar[count] = array4[i];
+                count++;
             }
-//            System.out.print(resultSimilar[i] + " ");
         }
-        System.out.println(Arrays.toString(resultSimilar));
+        int [] resultArray = new int[count];
+        for (int i = 0; i < count; i++) {
+            resultArray[i] = resultSimilar[i];
+        }
+
+        System.out.println(Arrays.toString(resultArray));
+        return resultArray;
 
     }
 
-    public static void reversArray(int[] array17) {
+    public static int[] reversArray(int[] array17) {
         System.out.print("Task 17 = ");
         for (int i = 0; i < array17.length / 2; i++) {
             int temp = array17[i];
@@ -303,6 +316,7 @@ public class TwentyMethodsApplication {
             array17[array17.length - 1 - i] = temp;
         }
         System.out.println(Arrays.toString(array17));
+        return array17;
     }
 
     public static int [] randomArrayInt(int sizeArray, int minLimit, int maxLimit) {
@@ -318,7 +332,7 @@ public class TwentyMethodsApplication {
         return randomArray;
     }
 
-    public static void checkArraySimilarity(char[] string1, char[] string2) {
+    public static boolean checkArraySimilarity(char[] string1, char[] string2) {
         System.out.print("Task 19 = ");
         boolean arraySimilar = true;
 
@@ -333,6 +347,7 @@ public class TwentyMethodsApplication {
             }
         }
          System.out.println(arraySimilar);
+        return arraySimilar;
     }
 
 
@@ -355,7 +370,7 @@ public class TwentyMethodsApplication {
     //✅13) метод принимает массив интов сортирует его по возрастанию
     //✅14) принимает массив байт, если в массиве есть повторяющиеся елементы, возвращает тру
     //✅15) принимает два массива интов одинаковых по длинне, возращает массив интов который состоит из перемноженных елементов входящих массивов
-    //🤷‍♂️16) принимает два массива интов, возвращает массив из елементов которые не совпадают в массивах
+    //✅️16) принимает два массива интов, возвращает массив из елементов которые не совпадают в массивах
     //✅17)принимает масив интов, возвращает его же но в реверсном порядке
     //✅️18)принимает 3 инта: -размер выходного массива, -нижняя граница, -верхняя граница
     // возвращает массив интов заданой длинный,который содержит случайные числа от нижней границы до верхней границы"

@@ -1,4 +1,4 @@
-package com.example.twentymethods;
+package com.gavrilyuk.twentymethods;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
